@@ -46,16 +46,24 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
       },
+      recess: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['recess:server', 'recess:dist', 'autoprefixer']
+      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
+ 
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
+          '{.tmp,<%= yeoman.app %>}/styles/*.css',
+          '{.tmp,<%= yeoman.app %>}/styles/*.less',
+//          '.tmp/styles/{,*/}*.css',
+//          '<%= yeoman.app %>/styles/{,*/}*.{less,css}',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -259,8 +267,31 @@ module.exports = function (grunt) {
         html: ['<%= yeoman.dist %>/*.html']
       }
     },
+    recess: {
+        options: {
+            compile: true
+        },
+        server: {
+            files: [{
+                expand: true,
+                cwd: '<%= yeoman.app %>/styles',
+                src: '{,*/}*.less',
+                dest: '<%= yeoman.app %>/styles',
+                ext: '.css'
+            }]
+        },
+        dist: {
+            files: [{
+                expand: true,
+                cwd: '<%= yeoman.app %>/styles',
+                src: '{,*/}*.less',
+                dest: '.tmp/styles/',
+                ext: '.css'
+            }]
+        }
+    },
 
-    // Copies remaining files to places other tasks can use
+     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
         files: [{
@@ -292,9 +323,9 @@ module.exports = function (grunt) {
     },
 
     // Run some tasks in parallel to speed up the build process
-    concurrent: {
+  /*  concurrent: {
       server: [
-        'copy:styles'
+        'copy:styles',
       ],
       test: [
         'copy:styles'
@@ -304,7 +335,7 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
-    },
+    },*/
 
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
