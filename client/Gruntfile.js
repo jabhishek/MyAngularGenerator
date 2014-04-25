@@ -62,8 +62,6 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '{.tmp,<%= yeoman.app %>}/styles/*.css',
           '{.tmp,<%= yeoman.app %>}/styles/*.less',
-//          '.tmp/styles/{,*/}*.css',
-//          '<%= yeoman.app %>/styles/{,*/}*.{less,css}',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -323,7 +321,7 @@ module.exports = function (grunt) {
     },
 
     // Run some tasks in parallel to speed up the build process
-  /*  concurrent: {
+    concurrent: {
       server: [
         'copy:styles',
       ],
@@ -335,7 +333,7 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
-    },*/
+    },
 
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
