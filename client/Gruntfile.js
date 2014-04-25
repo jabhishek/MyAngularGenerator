@@ -283,7 +283,7 @@ module.exports = function (grunt) {
                 expand: true,
                 cwd: '<%= yeoman.app %>/styles',
                 src: '{,*/}*.less',
-                dest: '.tmp/styles/',
+                dest: '<%= yeoman.dist %>/styles',
                 ext: '.css'
             }]
         }
@@ -400,6 +400,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'recess:dist',
     'clean:dist',
     'bowerInstall',
     'useminPrepare',
@@ -413,7 +414,8 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+
   ]);
 
   grunt.registerTask('default', [
