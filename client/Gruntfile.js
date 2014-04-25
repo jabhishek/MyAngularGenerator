@@ -400,7 +400,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'recess:dist',
+    //'recess:dist',
     'clean:dist',
     'bowerInstall',
     'useminPrepare',
