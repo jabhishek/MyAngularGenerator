@@ -55,4 +55,16 @@ if (app.get('env') === 'production') {
     });
 }
 
+
+// ROUTES FOR OUR API
+// =============================================================================
+           // get an instance of the express Router
+var router = express.Router();   
+var controllers = require("./services/index");
+controllers.init(router);
+
+// REGISTER OUR ROUTES -------------------------------
+// all of our routes will be prefixed with /api
+app.use('/api', router);
+
 module.exports = app;
