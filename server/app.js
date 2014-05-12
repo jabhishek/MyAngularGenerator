@@ -60,6 +60,7 @@ if (app.get('env') === 'production') {
 // =============================================================================
            // get an instance of the express Router
 var router = express.Router();   
+// All the api routes will be added from this single file (/services/index) - with all components having different files for routes
 var controllers = require("./services/index");
 controllers.init(router);
 

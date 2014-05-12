@@ -53,7 +53,7 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
- 
+
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -266,27 +266,27 @@ module.exports = function (grunt) {
       }
     },
     recess: {
-        options: {
-            compile: true
-        },
-        server: {
-            files: [{
-                expand: true,
-                cwd: '<%= yeoman.app %>/styles',
-                src: '{,*/}*.less',
-                dest: '<%= yeoman.app %>/styles',
-                ext: '.css'
-            }]
-        },
-        dist: {
-            files: [{
-                expand: true,
-                cwd: '<%= yeoman.app %>/styles',
-                src: '{,*/}*.less',
-                dest: '<%= yeoman.dist %>/styles',
-                ext: '.css'
-            }]
-        }
+      options: {
+        compile: true
+      },
+      server: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: '{,*/}*.less',
+          dest: '<%= yeoman.app %>/styles',
+          ext: '.css'
+        }]
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: '{,*/}*.less',
+          dest: '<%= yeoman.dist %>/styles',
+          ext: '.css'
+        }]
+      }
     },
 
      // Copies remaining files to places other tasks can use
@@ -401,23 +401,23 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    //'recess:dist',
-    'clean:dist',
-    'bowerInstall',
-    'useminPrepare',
-    'concurrent:dist',
-    'autoprefixer',
-    'concat',
-    'ngmin',
-    'copy:dist',
-    'cdnify',
-    'cssmin',
-    'uglify',
-    'rev',
-    'usemin',
-    'htmlmin',
+      //'recess:dist',
+      'clean:dist',
+      'bowerInstall',
+      'useminPrepare',
+      'concurrent:dist',
+      'autoprefixer',
+      'concat',
+      'ngmin',
+      'copy:dist',
+      'cdnify',
+      'cssmin',
+      'uglify',
+      'rev',
+      'usemin',
+      'htmlmin',
 
-  ]);
+    ]);
 
   grunt.registerTask('default', [
     'newer:jshint',

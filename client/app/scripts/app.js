@@ -9,9 +9,13 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/home', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/', {
+        templateUrl: 'views/notes.html',
+        controller: 'NotesCtrl'
       })
       .otherwise({
         redirectTo: '/'
