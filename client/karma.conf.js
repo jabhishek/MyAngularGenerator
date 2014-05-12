@@ -20,7 +20,7 @@ module.exports = function(config) {
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'test/spec/unit/**/*.js'
     ],
 
     // list of files / patterns to exclude
@@ -39,7 +39,7 @@ module.exports = function(config) {
     ],
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // Start these browsers, currently available:
