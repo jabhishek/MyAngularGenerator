@@ -1,9 +1,9 @@
 (function (database) {
     var mongodb = require("mongodb");
-    var connection = require("./connection");
+    var dbconfig = require("./dbconfig");
     // theBoard is the name of the database. 
     // If mongoDb doesn't find the database, it will create it for you.
-    var mongoUrl = connection.connectionString;
+    var mongoUrl = dbconfig.connectionString;
     var theDb = null;
     database.getDb = function(next) {
         if (!theDb) {

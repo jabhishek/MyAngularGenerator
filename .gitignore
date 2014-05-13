@@ -1,4 +1,4 @@
 server/dist
 server/node_modules
-server/data/connection.js
+server/data/dbconfig.js
 
