@@ -6,13 +6,23 @@ describe('Service: NotesService', function () {
   beforeEach(module('clientApp'));
 
   // instantiate service
-  var NotesService;
-  beforeEach(inject(function (_NotesService_) {
+  var NotesService, httpBackend;
+  beforeEach(inject(function (_NotesService_, _$httpBackend_) {
     NotesService = _NotesService_;
+    httpBackend = _$httpBackend_;
+    httpBackend.when('GET', '/api/notes').respond({notes: []});
   }));
 
-  it('should do something', function () {
-    expect(!!NotesService).toBe(true);
+  it('should return expected result', function () {
+    NotesService.getNotes().then(function(result) {
+      expect(result.data.notes).toEqual({});
+    });
+    httpBackend.flush();
   });
+
+  afterEach(function() {
+    httpBackend.verifyNoOutstandingExpectation();
+    httpBackend.verifyNoOutstandingRequest();  
+  })
 
 });
