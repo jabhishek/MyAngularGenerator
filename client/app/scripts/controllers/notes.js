@@ -9,9 +9,12 @@ angular.module('clientApp')
     init();
 
     function init() {
-        NotesService.getNotes().then(function(result) {
-            $scope.data.categories = result.data.categories;
-            console.log($scope.data.notes);
-        });
+        NotesService.getNotes()
+            .then(function(result) {
+                $scope.data.categories = result.categories;
+                console.log($scope.data.notes);
+            }, function(error) {
+                console.log(error);
+            });
     }
   });

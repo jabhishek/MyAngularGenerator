@@ -4,6 +4,7 @@
     // theBoard is the name of the database. 
     // If mongoDb doesn't find the database, it will create it for you.
     var mongoUrl = dbconfig.connectionString;
+    console.log(mongoUrl);
     var theDb = null;
     database.getDb = function(next) {
         if (!theDb) {

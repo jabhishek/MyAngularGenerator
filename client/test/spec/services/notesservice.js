@@ -15,7 +15,7 @@ describe('Service: NotesService', function () {
 
   it('should return expected result', function () {
     NotesService.getNotes().then(function(result) {
-      expect(result.data.notes).toEqual({});
+      expect(result.notes).toEqual({});
     });
     httpBackend.flush();
   });
